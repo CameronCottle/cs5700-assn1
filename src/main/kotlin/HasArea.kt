@@ -1,2 +1,3 @@
 interface HasArea {
+    fun getArea()
 }
