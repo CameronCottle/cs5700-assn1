@@ -1,3 +1,3 @@
 interface HasArea {
-    fun getArea()
+    fun getArea(): Double
 }

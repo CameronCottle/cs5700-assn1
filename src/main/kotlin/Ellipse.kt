@@ -1,11 +1,11 @@
-open class Ellipse(private val center: Point, private val radiiA: Double, private val radiiB: Double) : Shape {
+open class Ellipse(private val center: Point, private val semiMajor: Double, private val semiMinor: Double) : Shape, HasArea {
 
     init {
-        require(radiiA > 0 && radiiB > 0) { "Ellipse must have positive radii." }
+        require(semiMajor > 0 && semiMinor > 0) { "Ellipse must have positive radii." }
     }
 
-    fun getArea(): Double {
-        return Math.PI * radiiA * radiiB
+    override fun getArea(): Double {
+        return Math.PI * semiMajor * semiMinor
     }
 
     override fun move(dx: Double, dy: Double) {

@@ -4,11 +4,11 @@ class Triangle(
     private val pointA: Point,
     private val pointB: Point,
     private val pointC: Point
-) : Shape {
+) : Shape, HasArea {
 
     init {
         // we are comparing to a small number here because using a double may cause a 
-        // really small number, so we can't compare to exactly zero
+        // really small number, so we can't compare to exact zero
         require(area() > 1e-10) {
             "Triangle cannot have area 0."
         }
@@ -23,8 +23,8 @@ class Triangle(
         ) / 2.0
     }
 
-    // public area method to get 
-    fun getArea(): Double {
+    // public area method to get area
+    override fun getArea(): Double {
         return area()
     }
 
@@ -35,7 +35,7 @@ class Triangle(
         pointC.move(dx, dy)
     }
 
-    // getAttr
+    // return the points of the triangle
     override fun getAttr(): List<Point> {
         return listOf(pointA.clone(), pointB.clone(), pointC.clone())
     }
